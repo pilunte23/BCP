@@ -8,17 +8,20 @@ import { HEROESADDON } from '../mock-heroes';
   styleUrls: ['./heroes.component.css']
 })
 export class HeroesComponent implements OnInit {
-  heroes;
-  checkboxFlag:boolean = false;
+  heroes=HEROESBASE;
+  checkboxManorWayne:boolean = true;
 
   constructor() { }
 
   ngOnInit() {
-    if (this.checkboxFlag) 
+    
+  }
+
+  updateHeroes(){
+    if (this.checkboxManorWayne) 
     { this.heroes = HEROESBASE.concat(HEROESADDON)}
     else
     {this.heroes = HEROESBASE}
      ;
   }
-
 }

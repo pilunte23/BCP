@@ -1,6 +1,12 @@
 <h2>Villains</h2>
+<div class="form-check">
+    <label class="form-check-label">
+      <input [(ngModel)]="checkboxArkhamAsylum" type="checkbox" (ngModelChange)="updateVillains($event)"/>
+    Arkham Asylum
+  </label>
+</div>
 <ul class="villains,list-group">
-  <li class="list-group-item" *ngFor="let villain of villains">
-    <span class="badge">{{villain.id}}</span> {{villain.name}}
-  </li>
+    <li class="list-group-item" *ngFor="let villain of villains">
+        <span class="badge">{{villain.id}}</span> {{villain.name}}
+    </li>
 </ul>

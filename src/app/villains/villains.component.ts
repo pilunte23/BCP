@@ -7,10 +7,21 @@ import { VILLAINSADDON } from '../mock-villains';
   styleUrls: ['./villains.component.css']
 })
 export class VillainsComponent implements OnInit {
-  villains = VILLAINSBASE.concat(VILLAINSADDON)
+  villains = VILLAINSBASE
+  checkboxArkhamAsylum:boolean = true;
+
   constructor() { }
 
   ngOnInit() {
+    
+  }
+
+  updateVillains(){
+    if (this.checkboxArkhamAsylum) 
+    { this.villains = VILLAINSBASE.concat(VILLAINSADDON)}
+    else
+    {this.villains = VILLAINSBASE}
+     ;
   }
 
 }
