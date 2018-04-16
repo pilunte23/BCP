@@ -1,0 +1,25 @@
+
+<ng-template [ngIf]="characterType == 'Herotype'"><h2>Heroes</h2></ng-template>
+<ng-template [ngIf]="characterType == 'Villaintype'"><h2>Villains</h2></ng-template>
+
+<div class="form-check">
+    <label class="form-check-label">
+        <input [(ngModel)]="checkboxAddon" type="checkbox" (ngModelChange)="updateCharacters($event)"/>
+        <ng-template [ngIf]="characterType == 'Herotype'">Manor Wayne</ng-template>
+        <ng-template [ngIf]="characterType == 'Villaintype'">Arkham Asylum</ng-template>
+    </label>
+</div>
+<div class="row">
+    <div class="col-2">
+        <ul class="characters,list-group">
+            <li class="list-group-item" [class.selected]="character === selectedCharacter" *ngFor="let character of characters" (click)="onSelect(character)">
+                <span class="badge">{{character.id}}</span> {{character.name}}
+            </li>
+        </ul>
+     </div>
+    <div class="col" *ngIf="selectedCharacter">
+        <h2>{{ selectedCharacter.name | uppercase }}</h2> 
+        <span *ngIf="selectedCharacter.atlernativeName != ''" class="label label-default">Alternate miniature of {{selectedCharacter.atlernativeName}}</span>       
+    </div>
+</div>
+
